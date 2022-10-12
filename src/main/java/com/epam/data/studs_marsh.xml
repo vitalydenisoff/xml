@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<students>
+    <student login="gochette" faculty="mmf"> <name>Klimenko</name>
+        <phone>2095306</phone>
+        <address>
+            <city>Minsk</city>
+            <country>BLR</country>
+            <street>Skoriny 4</street>
+        </address>
+    </student>
+    <student login="ivette" faculty="mmf">
+        <name>Teran</name>
+        <phone>2345386</phone>
+        <address>
+            <city>Polotesk</city>
+            <country>BLR</country>
+            <street>Simeona P. 23</street>
+        </address>
+    </student>
+</students>

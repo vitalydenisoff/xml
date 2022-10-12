@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://example.com/students"
+        xmlns:tns="http://example.com/students"
+        elementFormDefault="qualified">
+
+    <element name="students">
+        <complexType>
+            <sequence>
+                <element ref="tns:person"
+                         minOccurs="2"
+                         maxOccurs="unbounded"/>
+            </sequence>
+        </complexType>
+    </element>
+    <complexType name="Student">
+        <sequence>
+            <element name="name" type="string"/>
+            <element name="phone" type="positiveInteger"/>
+            <element name="address" type="tns:Address"/>
+        </sequence>
+            <attribute name="login" type="tns:Login" use="required"/>
+            <attribute name="faculty" use="optional" default="asu">
+        <simpleType>
+            <restriction base="string">
+                <enumeration value="asu"/>
+                <enumeration value="mmf"/>
+                <enumeration value="ksis"/>
+            </restriction>
+        </simpleType>
+    </attribute>
+    </complexType>
+    <simpleType name="Login">
+        <restriction base="ID">
+            <pattern value="([a-zA-Z])[a-zA-Z0-9]{7,19}"/>
+        </restriction>
+    </simpleType>
+    <complexType name="Address">
+        <sequence>
+            <element name="country" type="string"/>
+            <element name="city" type="string"/>
+            <element name="street" type="string"/>
+        </sequence>
+    </complexType>
+    <element name="Teacher">
+        <complexType>
+            <simpleContent>
+                <extension base="string">
+                    <attribute name="faculty" type="string"/>
+                </extension>
+            </simpleContent>
+        </complexType>
+    </element>
+    <complexType name="PersonType">
+        <sequence>
+            <element name="name" type="string"/>
+            <element name="phone" type="positiveInteger"/>
+            <element name="address" type="tns:Address"/>
+        </sequence>
+    </complexType>
+    <complexType name="Student">
+        <complexContent>
+            <extension base="tns:PersonType">
+                <attribute name="login" type="tns:Login" use="required"/>
+                <attribute name="faculty" use="optional" default="sau">
+                    <simpleType>
+                        <restriction base="string">
+                            <enumeration value="asu"/>
+                            <enumeration value="geo"/>
+                            <enumeration value="ksis"/>
+                        </restriction>
+                    </simpleType>
+                </attribute>
+            </extension>
+        </complexContent>
+    </complexType>
+    <complexType name="Abiturient">
+        <complexContent>
+            <extension base="tns:PersonType">
+                <sequence>
+                    <element name="average-mark" type="double"/>
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+    <element name="person" type="tns:PersonType" abstract="true"/>
+    <element name="student" type="tns:Student" substitutionGroup="tns:person"/>
+    <element name="abiturient" type="tns:Abiturient" substitutionGroup="tns:person"/>
+</schema>

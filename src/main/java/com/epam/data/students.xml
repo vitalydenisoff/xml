@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<students>
+    <student login = "DenisovVitaly" faculty = "asu">
+        <name>Denisov Vitaly</name>
+        <phone>375298842871</phone>
+        <address>
+            <country>Belarus</country>
+            <city>Grodno</city>
+            <street>Kabyaka 4</street>
+        </address>
+    </student>
+    <student login="AlexNiunko" faculty="mmf">
+        <name>Niunko Alexandr</name>
+        <phone>375298823898</phone>
+        <address>
+            <country>Belarus</country>
+            <city>Grodno</city>
+            <street>Malishenskaya 12</street>
+        </address>
+    </student>
+</students>
